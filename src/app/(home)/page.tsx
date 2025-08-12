@@ -1,6 +1,7 @@
 import WeirdText from "@/components/WeirdText";
 import { getData, getQueryData } from "../data";
 import Nav from "@/components/layout/Nav";
+import FooterMobile from "@/components/layout/FooterMobile";
 
 export default async function Home() {
   const data: Datatype = await getData();
@@ -12,6 +13,7 @@ export default async function Home() {
           <div key={index}>
             <Nav id={null} />
             <WeirdText weird_text={item.weird_text} />
+            <FooterMobile id={3} />
           </div>
         ))}
     </div>
