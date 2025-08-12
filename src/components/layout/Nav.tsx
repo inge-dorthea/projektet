@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Nav = ({ id }: { id: number | null }) => {
   return (
-    <header className="flex justify-between">
+    <header className="flex justify-between mt-10">
       {/* if you are on the frontpage, the navigation won't show at mobile-size */}
       <nav className={`w-[100%] ${id == null ? "hidden md:block" : "block"}`}>
         <menu className="flex gap-1 justify-between md:justify-start">

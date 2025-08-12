@@ -1,12 +1,12 @@
 // kun til subpage
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const FooterMobile = ({ id }: { id: number }) => {
   let imgSrc = "/images/logo/logo-a.png";
 
+  //   if you are on the getintouch page, the logo will be orange
   if (id == 3) {
     imgSrc = "/images/logo/logo-b.png";
   }

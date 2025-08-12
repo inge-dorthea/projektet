@@ -1,5 +1,5 @@
 import WeirdText from "@/components/WeirdText";
-import { getData, getQueryData } from "../data";
+import { getData } from "../data";
 import Nav from "@/components/layout/Nav";
 import FooterMobile from "@/components/layout/FooterMobile";
 
