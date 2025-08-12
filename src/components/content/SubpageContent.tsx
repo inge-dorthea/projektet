@@ -49,6 +49,7 @@ const SubpageContent = async ({ id }: { id: number }) => {
                   {item}
                 </p>
               ))}
+              
             </article>
 
             <div className={id == 3 ? "block" : "hidden"}>
