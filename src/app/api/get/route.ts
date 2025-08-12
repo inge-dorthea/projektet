@@ -13,7 +13,5 @@ export const GET = async (req: NextRequest) => {
     .select("*")
     .order("id", { ascending: false });
 
-  console.log({ data });
-
   return NextResponse.json({ data });
 };

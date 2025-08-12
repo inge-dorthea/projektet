@@ -5,7 +5,6 @@ interface Params {
   params: { id: string };
 }
 
-// denne kan lægges i sin egen fil og hentes ind, så man ikke skal skrive det hver gang
 const supabase = createClient(
   process.env.SUPABASE_URL!,
   process.env.SUPABASE_ANON_KEY!
