@@ -13,7 +13,7 @@ const Page = async (props: PageProps) => {
 
   return (
     <div
-      className={`w-[100vw] h-full md:h-[100vh] flex justify-center px-5 ${
+      className={`w-[100vw] h-full min-h-[100vh] flex justify-center px-5 ${
         id == "1"
           ? "bg-[#abcfe6]"
           : id == "2"
@@ -25,7 +25,7 @@ const Page = async (props: PageProps) => {
     >
       <div className="container lg:w-2/3">
         <Nav id={parseInt(id)} />
-      <div className="md:ms-13.5">
+      <div className="md:ms-13.5 mb-4">
         <SubpageContent id={parseInt(id)} />
       </div>
       <FooterMobile id={parseInt(id)} />

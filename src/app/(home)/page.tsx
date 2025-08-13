@@ -1,21 +1,13 @@
-import WeirdText from "@/components/WeirdText";
-import { getData } from "../data";
 import Nav from "@/components/layout/Nav";
-import FooterMobile from "@/components/layout/FooterMobile";
+import FrontpageContent from "@/components/content/FrontpageContent";
 
-export default async function Home() {
-  const data: Datatype = await getData();
-
+export default function Home() {
   return (
-    <div>
-      {data &&
-        data.data.map((item, index: number) => (
-          <div key={index}>
-            <Nav id={null} />
-            <WeirdText weird_text={item.weird_text} />
-            <FooterMobile id={3} />
-          </div>
-        ))}
+    <div className="w-[100vw] h-full min-h-[100vh] flex justify-center px-5 pb-5 bg-gradient-to-b from-white to-[#abcfe6]">
+      <div className="container lg:w-2/3">
+        <Nav id={null} />
+        <FrontpageContent />
+      </div>
     </div>
   );
 }

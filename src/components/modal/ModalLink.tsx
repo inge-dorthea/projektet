@@ -22,7 +22,7 @@ const ModalLink = () => {
     <div className="flex justify-center md:justify-start md:flex-row-reverse gap-4 my-2">
       {data &&
         data.data.map((item, index) => (
-          <div key={index} onClick={openModal}>
+          <div key={index} onClick={openModal} className="cursor-pointer">
             <figure>
               <Image
                 src={"/images/db_images/" + item.sm_img}
@@ -30,6 +30,7 @@ const ModalLink = () => {
                 width="100"
                 height="100"
               />
+              <figcaption className="text-sm tracking-[-0.09em] text-center">{item.email}</figcaption>
             </figure>
           </div>
         ))}

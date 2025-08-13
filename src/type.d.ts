@@ -12,6 +12,7 @@ interface Datatype {
             fp_weird_text: string;
             name: string;
             article: [string];
+            email: string;
         }
     ]
 }

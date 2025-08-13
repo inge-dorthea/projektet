@@ -14,9 +14,7 @@ const Nav = ({ id }: { id: number | null }) => {
           )}
           <div className="flex gap-2">
             <li>
-              <figure>
-                <NavLink url="/subpage?id=1" imgId="1" pageId={id} />
-              </figure>
+              <NavLink url="/subpage?id=1" imgId="1" pageId={id} />
             </li>
             <li>
               <NavLink url="/subpage?id=2" imgId="2" pageId={id} />
