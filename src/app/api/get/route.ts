@@ -1,13 +1,15 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+// GET route to get data for the site
 
-// grab the key to the database
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_ANON_KEY!
-);
+import { NextRequest, NextResponse } from "next/server";
+import client from "@/util/client";
+
+// getting into the database
+const supabase = client();
 
 export const GET = async (req: NextRequest) => {
+  // choosing which table to get data from
+  // selecting which columns to get
+  // selecting which order the columns should be in
   const { data, error } = await supabase
     .from("af_lastassignment")
     .select("*")

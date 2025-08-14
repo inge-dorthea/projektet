@@ -1,10 +1,13 @@
 import Image from "next/image";
-import { getData } from "@/app/data";
-import WeirdText from "./WeirdText";
 import Link from "next/link";
 
+import { getData } from "@/app/data";
+import WeirdText from "./WeirdText";
+
+
 const FrontpageContent = async () => {
-  const data: Datatype = await getData();
+  // fetching data
+  const data: DataList = await getData();
 
   return (
     <main>
@@ -14,6 +17,7 @@ const FrontpageContent = async () => {
             <Link
               key={index}
               href={{ pathname: "/subpage", query: { id: item.id.toString() } }}
+              // the images each link to their matching subpage
             >
               <figure>
                 <Image

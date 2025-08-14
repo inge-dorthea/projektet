@@ -1,5 +1,6 @@
-import * as yup from 'yup';
+import * as yup from 'yup'; // npm i yup
 
+// schema with rules for the inputs, all being required for the form to submit data
 const schema = yup.object().shape({
     Name: yup.string().required("Please write your name."),
     Email: yup.string().required("Please write your e-mail.").email("Please write a valid e-mail."),

@@ -1,38 +1,43 @@
-import NavLink from "./NavLink";
 import Image from "next/image";
 
+import NavLink from "./NavLink";
+
 const Nav = ({ id }: { id: number | null }) => {
+  // the id = searchParams from subpages, and null from the frontpage
+  // the id is used to check if the user is on a subpage - and which specific one
+  // ^ to have different versions of the navigation on different pages
+
   return (
     <header className="flex justify-between mt-10">
-      {/* if you are on the frontpage, the navigation won't show at mobile-size */}
       <nav className={`w-[100%] ${id == null ? "hidden md:block" : "block"}`}>
+        {/* on the frontpage, the navigation won't show on small screens */}
         <menu className="flex gap-1 justify-between md:justify-start">
-          {id != null && (
+          {id != null && ( // this NavLink only shows on subpages
             <li>
-              <NavLink url="/" imgId="back" pageId={id} />
+              <NavLink pageId={id} />
             </li>
           )}
           <div className="flex gap-2">
             <li>
-              <NavLink url="/subpage?id=1" imgId="1" pageId={id} />
+              <NavLink subId="1" pageId={id} />
             </li>
             <li>
-              <NavLink url="/subpage?id=2" imgId="2" pageId={id} />
+              <NavLink subId="2" pageId={id} />
             </li>
             <li>
-              <NavLink url="/subpage?id=3" imgId="3" pageId={id} />
+              <NavLink subId="3" pageId={id} />
             </li>
           </div>
         </menu>
       </nav>
-      {/* if you are on the frontpage, there will be a logo in the header */}
       <figure className={id == null ? "block" : "hidden"}>
+        {/* on the frontpage, there's a logo in the header */}
         <Image
           src="/images/logo/logo-final.png"
-          width="110"
-          height="110"
+          width="500"
+          height="200"
           alt="logo"
-          className="mt-4"
+          className="mt-4 h-10 w-auto"
         />
       </figure>
     </header>

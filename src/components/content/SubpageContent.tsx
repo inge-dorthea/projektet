@@ -1,10 +1,13 @@
-import { getQueryData } from "@/app/data";
-import WeirdText from "./WeirdText";
 import Image from "next/image";
+
+import { getQueryData } from "@/app/data";
+
+import WeirdText from "./WeirdText";
 import ModalLink from "../modal/ModalLink";
 
-const SubpageContent = async ({ id }: { id: number }) => {
-  const data: Datatype = await getQueryData(id.toString());
+const SubpageContent = async ({ pageId }: { pageId: number }) => {
+  // fetching unique data, matching the subpage-id
+  const data: DataList = await getQueryData(pageId.toString());
 
   return (
     <main>
@@ -16,7 +19,7 @@ const SubpageContent = async ({ id }: { id: number }) => {
               alt={data.data[0].name}
               width="500"
               height="500"
-              className="hidden md:block"
+              className="hidden md:block h-full"
             />
             <Image
               src={"/images/db_images/" + data.data[0].alt_img}
@@ -30,13 +33,16 @@ const SubpageContent = async ({ id }: { id: number }) => {
             <article className="w-[75%] md:w-[100%]">
               <h1
                 className={`text-5xl tracking-[-0.09em] text-transparent bg-clip-text bg-gradient-to-r from-black ${
-                  id == 1
+                  pageId == 1
                     ? "to-[#255A7A]"
-                    : id == 2
+                    : pageId == 2
                     ? "to-[#5D91A6]"
-                    : id == 3
+                    : pageId == 3
                     ? "to-[#BF7C41]"
                     : "to-black"
+                  // using a gradient instead of splitting up the datastring
+                  // not doing all that for different sized strings
+                  // and not changing the data - i can't be bothered to do so
                 } to-45%`}
               >
                 {data.data[0].art_headline} ...
@@ -49,12 +55,10 @@ const SubpageContent = async ({ id }: { id: number }) => {
                   {item}
                 </p>
               ))}
-              
             </article>
 
-            <div className={id == 3 ? "block" : "hidden"}>
-              <ModalLink />
-            </div>
+            {/* on subpage 3 there are contact images which open a modal with a form */}
+            {pageId == 3 && <ModalLink />}
 
             <div className="hidden md:flex justify-end">
               <WeirdText weird_text={data.data[0].weird_text} />

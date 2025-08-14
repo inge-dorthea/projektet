@@ -6,6 +6,7 @@ export default function Home() {
     <div className="w-[100vw] h-full min-h-[100vh] flex justify-center px-5 pb-5 bg-gradient-to-b from-white to-[#abcfe6]">
       <div className="container lg:w-2/3">
         <Nav id={null} />
+        {/* id = null, because it is the frontpage and not a subpage */}
         <FrontpageContent />
       </div>
     </div>
