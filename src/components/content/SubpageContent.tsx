@@ -1,5 +1,5 @@
 import { getQueryData } from "@/app/data";
-import WeirdText from "../WeirdText";
+import WeirdText from "./WeirdText";
 import Image from "next/image";
 import ModalLink from "../modal/ModalLink";
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getData } from "@/app/data";
-import WeirdText from "../WeirdText";
+import WeirdText from "./WeirdText";
 import Link from "next/link";
 
 const FrontpageContent = async () => {

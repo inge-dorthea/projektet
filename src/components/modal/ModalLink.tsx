@@ -7,7 +7,7 @@ import Modal from "./Modal";
 
 const ModalLink = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
-  const [modalId, setModalId] = useState<number | null>(null)
+  const [modalData, setModalData] = useState<DataObjectType | null>(null)
 
   const [data, setData] = useState<Datatype | null>(null);
 
@@ -18,11 +18,11 @@ const ModalLink = () => {
     })();
   }, []);
 
-  const openModal = (id: number) => {
+  const openModal = (item: DataObjectType) => {
     console.log("modal is open");
 
     setModalOpen(true);
-    setModalId(id);
+    setModalData(item);
   };
 
   const closeModal = () => {
@@ -34,7 +34,7 @@ const ModalLink = () => {
     <div className="flex justify-center md:justify-start flex-row-reverse gap-4 my-2">
       {data &&
         data.data.map((item, index) => (
-          <div key={index} onClick={()=> openModal(item.id)} className="cursor-pointer">
+          <div key={index} onClick={()=> openModal(item)} className="cursor-pointer">
             <figure>
               <Image
                 src={"/images/db_images/" + item.sm_img}
@@ -49,7 +49,7 @@ const ModalLink = () => {
           </div>
         ))}
 
-      <Modal open={modalOpen} id={modalId} close={closeModal} />
+      <Modal open={modalOpen} data={modalData} close={closeModal} />
     </div>
   );
 };
