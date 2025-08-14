@@ -6,11 +6,18 @@ type TextAreaProps = {
   error: string | undefined;
 } & React.InputHTMLAttributes<HTMLTextAreaElement>;
 
-const TextArea = ({ id, label, rows, placeholder, error, ...props }: TextAreaProps) => {
+const TextArea = ({
+  id,
+  label,
+  rows,
+  placeholder,
+  error,
+  ...props
+}: TextAreaProps) => {
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={id} className="text-sm flex justify-between">
-        {label}: <span className="text-xs text-red-800">{error}</span>
+        {label}: <span className="text-xs text-red-800 ps-2">{error}</span>
       </label>
       <textarea
         name={id}

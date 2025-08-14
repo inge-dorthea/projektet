@@ -1,14 +1,14 @@
 type TextFieldProps = {
   id: string;
   label: string;
-  error: string | undefined;
+  error?: string | undefined;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 const TextInput = ({ id, label, error, ...props }: TextFieldProps) => {
   return (
     <div className="flex flex-col gap-1">
       <label htmlFor={id} className="text-sm flex justify-between">
-        {label}: <span className="text-xs text-red-800">{error}</span>
+        {label}: <span className="text-xs text-red-800 ps-2">{error}</span>
       </label>
       <input
         id={id}

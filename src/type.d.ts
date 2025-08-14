@@ -1,7 +1,5 @@
 interface Datatype {
-  data: [
-    DataObjectType
-  ];
+  data: [DataObjectType];
 }
 
 interface DataObjectType {

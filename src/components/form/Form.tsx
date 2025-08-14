@@ -4,20 +4,26 @@ import TextInput from "./form-elements/TextInput";
 
 import { SubmitHandler } from "react-hook-form";
 import useYupValidation from "@/hooks/useYupValidation";
+import { postData } from "@/app/data";
 
 type FormData = {
   Name: string;
   Email: string;
   Topic: string;
   Message: string;
-}
+};
 
 const Form = ({ data }: { data: DataObjectType }) => {
+  const nameReceiver = data.name;
+  const emailReceiver = data.email;
 
   const { register, handleSubmit, errors } = useYupValidation();
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<FormData> = async (formData) => {
+    const submitData = { nameReceiver, emailReceiver, formData };
+    const submitDataJson = JSON.stringify(submitData);
+
+    postData(submitDataJson);
   };
 
   return (
@@ -27,14 +33,14 @@ const Form = ({ data }: { data: DataObjectType }) => {
           id="to"
           label="Receiver"
           type="text"
-          value={data.name}
+          value={nameReceiver}
           disabled={true}
         />
         <TextInput
           id="email_receiver"
           label="Receiver's e-mail"
           type="email"
-          value={data.email}
+          value={emailReceiver}
           disabled={true}
         />
         <hr className="my-2 text-gray-500" />
